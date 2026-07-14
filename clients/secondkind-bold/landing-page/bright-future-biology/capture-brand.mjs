@@ -1,0 +1,20 @@
+import fs from "node:fs/promises";
+
+const [, , page = "brand-preview.html", label = "brand", width = "1440", height = "1000", base = "http://127.0.0.1:4173"] = process.argv;
+const tabs = await fetch("http://127.0.0.1:18800/json").then((r) => r.json());
+const target = tabs.find((tab) => tab.type === "page");
+const ws = new WebSocket(target.webSocketDebuggerUrl);
+await new Promise((resolve, reject) => { ws.onopen = resolve; ws.onerror = reject; });
+let id = 0;
+const pending = new Map();
+ws.onmessage = ({ data }) => { const msg = JSON.parse(data); if (msg.id && pending.has(msg.id)) { pending.get(msg.id)(msg); pending.delete(msg.id); } };
+const call = (method, params = {}) => new Promise((resolve) => { const callId = ++id; pending.set(callId, resolve); ws.send(JSON.stringify({ id: callId, method, params })); });
+await call("Page.enable");
+await call("Emulation.setDeviceMetricsOverride", { width: Number(width), height: Number(height), deviceScaleFactor: 1, mobile: Number(width) < 700 });
+await call("Page.navigate", { url: `${base}/${page}` });
+await new Promise((resolve) => setTimeout(resolve, 1800));
+const metrics = await call("Page.getLayoutMetrics");
+const size = metrics.result.cssContentSize;
+const shot = await call("Page.captureScreenshot", { format: "png", captureBeyondViewport: true, clip: { x: 0, y: 0, width: size.width, height: size.height, scale: 1 } });
+await fs.writeFile(`${label}-${Number(width) < 700 ? "mobile" : "desktop"}.png`, Buffer.from(shot.result.data, "base64"));
+ws.close();

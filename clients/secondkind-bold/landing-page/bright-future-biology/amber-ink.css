@@ -1,0 +1,53 @@
+:root {
+  --ink: #1d1818;
+  --bone: #fffcf7;
+  --paper: #fff8ea;
+  --coral: #f5d7a1;
+  --citrus: #fcb038;
+  --lilac: #d8d2c8;
+  --cobalt: #1d1818;
+  --mint: #f7ead1;
+  --line: 2px solid #1d1818;
+}
+
+body,
+.site-header,
+.hero-copy,
+.hero-foot,
+.full90,
+.offer-copy { background: var(--bone); }
+.site-header { background: rgba(255, 252, 247, .97); }
+.announcement,
+.section-intro,
+footer { background: var(--ink); }
+.header-cta,
+.button-primary { background: var(--citrus); }
+.button-primary { color: var(--ink); box-shadow-color: var(--ink); }
+.button-primary:hover { background: #e69a22; color: var(--ink); box-shadow-color: #6c4b25; }
+.hero-stage,
+.offer { background: #f2d6a1; }
+.sun-disc,
+.offer-halo { background: var(--citrus); }
+.stage-badge { background: var(--bone); box-shadow-color: var(--ink); }
+.orb { background: rgba(255, 252, 247, .76); }
+.moment-marquee,
+.receipts,
+.closing { background: var(--ink); }
+.mechanism-demo,
+.faq { background: var(--mint); }
+.mechanism-tabs button.active { background: var(--citrus); color: var(--ink); }
+.compound { background: #f1c36d; }
+.compound.c2 { background: var(--citrus); }
+.compound.c3 { background: #d8d2c8; }
+.moment-coral { background: #f1d4a5; }
+.moment-citrus { background: var(--citrus); }
+.moment-lilac { background: #d8d2c8; }
+.receipt-stack article > div span,
+.section-intro h2 em,
+.closing h2 em { color: var(--citrus); }
+.closing-orbs i { background: var(--citrus); }
+.closing-orbs i:nth-child(2) { background: #f5d7a1; }
+.closing-orbs i:nth-child(3) { background: #d8d2c8; }
+.button-light { background: var(--bone); box-shadow-color: var(--citrus); }
+input { accent-color: var(--citrus); }
+:focus-visible { outline-color: var(--citrus); }

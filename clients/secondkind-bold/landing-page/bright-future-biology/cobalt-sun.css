@@ -1,0 +1,53 @@
+:root {
+  --ink: #211d31;
+  --bone: #fffaf0;
+  --paper: #f7eedc;
+  --coral: #ef8d73;
+  --citrus: #f4b52f;
+  --lilac: #c9b9df;
+  --cobalt: #2846a1;
+  --mint: #d9e3ea;
+  --line: 2px solid #211d31;
+}
+
+body,
+.site-header,
+.hero-copy,
+.hero-foot,
+.full90,
+.offer-copy { background: var(--bone); }
+.site-header { background: rgba(255, 250, 240, .97); }
+.announcement,
+.section-intro,
+footer { background: var(--ink); }
+.header-cta,
+.button-primary { background: var(--citrus); }
+.button-primary { color: var(--ink); box-shadow-color: var(--cobalt); }
+.button-primary:hover { background: var(--coral); color: var(--ink); box-shadow-color: var(--citrus); }
+.hero-stage,
+.offer { background: #d4deeb; }
+.sun-disc,
+.offer-halo { background: var(--citrus); }
+.stage-badge { background: var(--bone); box-shadow-color: var(--cobalt); }
+.orb { background: rgba(255, 250, 240, .74); }
+.moment-marquee,
+.receipts,
+.closing { background: var(--cobalt); }
+.mechanism-demo,
+.faq { background: var(--mint); }
+.mechanism-tabs button.active { background: var(--citrus); color: var(--ink); }
+.compound { background: var(--coral); }
+.compound.c2 { background: var(--citrus); }
+.compound.c3 { background: var(--lilac); }
+.moment-coral { background: var(--coral); }
+.moment-citrus { background: var(--citrus); }
+.moment-lilac { background: var(--lilac); }
+.receipt-stack article > div span,
+.section-intro h2 em,
+.closing h2 em { color: #ffd267; }
+.closing-orbs i { background: var(--coral); }
+.closing-orbs i:nth-child(2) { background: var(--citrus); }
+.closing-orbs i:nth-child(3) { background: var(--lilac); }
+.button-light { background: var(--bone); box-shadow-color: var(--citrus); }
+input { accent-color: var(--cobalt); }
+:focus-visible { outline-color: var(--cobalt); }
